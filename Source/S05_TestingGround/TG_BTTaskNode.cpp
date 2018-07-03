@@ -4,7 +4,9 @@
 
 EBTNodeResult::Type UTG_BTTaskNode::ExecuteTask(UBehaviorTreeComponent & OwnerComp, uint8 * NodeMemory)
 {
-	UE_LOG(LogTemp,Warning,TEXT("It is Work!!!Yeah~"))
+	auto BlackboardCom = OwnerComp.GetBlackboardComponent();
+	auto Index = BlackboardCom->GetValueAsInt(IndexKey.SelectedKeyName);
+	UE_LOG(LogTemp,Warning,TEXT("Waypoint index : %i"),Index)
 	return EBTNodeResult::Succeeded;
 }
 

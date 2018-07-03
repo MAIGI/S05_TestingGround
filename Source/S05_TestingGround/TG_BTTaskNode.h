@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "BehaviorTree/BTTaskNode.h"
+#include "BehaviorTree/BlackboardComponent.h"
+#include "BehaviorTree/BehaviorTreeTypes.h"
 #include "TG_BTTaskNode.generated.h"
 
 /**
@@ -19,5 +21,11 @@ class S05_TESTINGGROUND_API UTG_BTTaskNode : public UBTTaskNode
 protected:
 	void OnTaskFinished(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, EBTNodeResult::Type TaskResult)override;
 	
+	UPROPERTY(EditAnywhere, Category = "Blackboard")
+	FBlackboardKeySelector IndexKey;
+
+	UPROPERTY(EditAnywhere, Category = "Blackboard")
+	FBlackboardKeySelector WayPoints;
+
 	
 };
